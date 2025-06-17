@@ -1,0 +1,12 @@
+# Node modules - never track dependencies
+node_modules/
+
+
+# Parcel cache - used to speed up builds
+.parcel-cache/
+
+# Optional: Output directories
+dist/
+
+# OS-specific files
+.DS_Store
