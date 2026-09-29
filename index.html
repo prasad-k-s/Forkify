@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700"
       rel="stylesheet"
     />
+    <meta name="theme-color" content="#f38e82" />
     <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="src/sass/main.scss" />
@@ -25,8 +26,10 @@
             type="text"
             class="search__field"
             placeholder="Search over 1,000,000 recipes..."
+            aria-label="Search recipes"
+            enterkeyhint="search"
           />
-          <button class="btn search__btn">
+          <button class="btn search__btn" aria-label="Search">
             <svg class="search__icon">
               <use href="src/img/icons.svg#icon-search"></use>
             </svg>
@@ -37,7 +40,7 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <button class="nav__btn nav__btn--add-recipe">
+              <button class="nav__btn nav__btn--add-recipe" aria-label="Add recipe">
                 <svg class="nav__icon">
                   <use href="src/img/icons.svg#icon-edit"></use>
                 </svg>
@@ -45,13 +48,18 @@
               </button>
             </li>
             <li class="nav__item">
-              <button class="nav__btn nav__btn--bookmarks">
+              <button
+                class="nav__btn nav__btn--bookmarks"
+                aria-label="Bookmarks"
+                aria-expanded="false"
+                aria-controls="bookmarks-panel"
+              >
                 <svg class="nav__icon">
                   <use href="src/img/icons.svg#icon-bookmark"></use>
                 </svg>
                 <span>Bookmarks</span>
               </button>
-              <div class="bookmarks">
+              <div class="bookmarks" id="bookmarks-panel">
                 <ul class="bookmarks__list">
                   <div class="message">
                     <div>
@@ -71,7 +79,16 @@
       </header>
 
       <div class="search-results">
-        <ul class="results"></ul>
+        <ul class="results">
+          <div class="message results__welcome">
+            <div>
+              <svg>
+                <use href="src/img/icons.svg#icon-smile"></use>
+              </svg>
+            </div>
+            <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+          </div>
+        </ul>
 
         <div class="pagination"></div>
 
@@ -94,22 +111,22 @@
 
     <div class="overlay hidden"></div>
     <div class="add-recipe-window hidden">
-      <button class="btn--close-modal">&times;</button>
-      <form class="upload">
+      <button class="btn--close-modal" aria-label="Close">&times;</button>
+      <form class="upload" novalidate>
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
           <input value="" required name="title" type="text" />
           <label>URL</label>
-          <input value="" required name="sourceUrl" type="text" />
+          <input value="" required name="sourceUrl" type="url" inputmode="url" />
           <label>Image URL</label>
-          <input value="" required name="image" type="text" />
+          <input value="" required name="image" type="url" inputmode="url" />
           <label>Publisher</label>
           <input value="" required name="publisher" type="text" />
           <label>Prep time</label>
-          <input value="" required name="cookingTime" type="number" />
+          <input value="" required name="cookingTime" type="number" min="1" />
           <label>Servings</label>
-          <input value="" required name="servings" type="number" />
+          <input value="" required name="servings" type="number" min="1" />
         </div>
 
         <div class="upload__column">
@@ -155,6 +172,8 @@
             placeholder="Format: 'Quantity,Unit,Description'"
           />
         </div>
+
+        <p class="upload__form-error hidden" role="alert"></p>
 
         <button class="btn upload__btn">
           <svg>

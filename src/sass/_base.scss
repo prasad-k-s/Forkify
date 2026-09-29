@@ -1,4 +1,3 @@
-// $color-primary: #f59a83;
 $color-primary: #f38e82;
 $color-grad-1: #fbdb89;
 $color-grad-2: #f48982;
@@ -8,6 +7,7 @@ $color-grey-light-2: #f2efee; // Light lines
 $color-grey-light-3: #d3c7c3; // Light text (placeholder)
 $color-grey-dark-1: #615551; // Normal text
 $color-grey-dark-2: #918581; // Lighter text
+$color-error: #d64545;
 
 $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
 
@@ -33,6 +33,10 @@ html {
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 50%;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 56.25%;
   }
 }
 
@@ -67,5 +71,39 @@ body {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    min-height: 100vh;
+    min-height: 100dvh;
+    grid-template-rows: 10rem 1fr;
+  }
+
+  // Phones: results and recipe become two separate screens
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "head"
+      "main";
+    box-shadow: none;
+
+    .search-results,
+    .recipe {
+      grid-area: main;
+      min-width: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $bp-small) {
+  body {
+    background-image: none;
+    background-color: #fff;
+  }
+
+  body:not(.recipe-open) .recipe,
+  body.recipe-open .search-results {
+    display: none;
   }
 }

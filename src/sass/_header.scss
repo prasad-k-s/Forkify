@@ -12,6 +12,18 @@
     height: 4.6rem;
     display: block;
   }
+
+  @media only screen and (max-width: $bp-small) {
+    position: relative;
+    flex-wrap: wrap;
+    row-gap: 1.2rem;
+    padding: 1.4rem 1.6rem 1.6rem;
+
+    &__logo {
+      margin-left: 0;
+      height: 3.8rem;
+    }
+  }
 }
 
 .search {
@@ -45,16 +57,40 @@
 
     @media only screen and (max-width: $bp-medium) {
       width: auto;
-
-      &::placeholder {
-        color: white;
-      }
     }
   }
 
   &__btn {
     font-weight: 600;
     font-family: inherit;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    order: 3;
+    flex: 1 1 100%;
+    padding-left: 2rem;
+
+    &__field {
+      flex: 1;
+      min-width: 0;
+      font-size: 1.6rem;
+
+      &::placeholder {
+        color: $color-grey-light-3;
+      }
+    }
+
+    &__btn {
+      padding: 1.2rem 1.8rem;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -104,12 +140,32 @@
       background-color: $color-grey-light-2;
     }
   }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+
+    &__item {
+      position: static;
+    }
+
+    &__btn {
+      padding: 1rem 1.2rem;
+      border-radius: 0.8rem;
+
+      span {
+        display: none;
+      }
+
+      svg {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 .bookmarks {
   padding: 1rem 0;
   position: absolute;
-  // right: 0;
   right: -2.5rem;
   z-index: 10;
   width: 40rem;
@@ -119,6 +175,8 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
+  max-height: 70vh;
+  overflow-y: auto;
 
   &__list {
     list-style: none;
@@ -138,9 +196,24 @@
     }
   }
 
-  &:hover,
-  .nav__btn--bookmarks:hover + & {
+  &--open {
     visibility: visible;
     opacity: 1;
+    transition: all 0.3s;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    .nav__btn--bookmarks:hover + & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
   }
 }
