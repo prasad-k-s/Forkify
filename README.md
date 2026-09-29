@@ -7,7 +7,7 @@ A responsive recipe app built with vanilla JavaScript using the **MVC architectu
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Parcel](https://img.shields.io/badge/Parcel-21374B?style=for-the-badge&logo=parcel&logoColor=white)
 
-**🔗 Live demo:** [add your deployed link here](#)
+**🔗 Live demo:** [prasad-forkify.netlify.app](https://prasad-forkify.netlify.app/)
 
 ---
 
