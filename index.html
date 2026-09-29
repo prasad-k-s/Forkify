@@ -80,14 +80,23 @@
 
       <div class="search-results">
         <ul class="results">
-          <div class="message results__welcome">
-            <div>
-              <svg>
-                <use href="src/img/icons.svg#icon-smile"></use>
-              </svg>
+          <li class="results__empty">
+            <svg class="results__empty-icon" aria-hidden="true">
+              <use href="src/img/icons.svg#icon-search"></use>
+            </svg>
+            <h3 class="results__empty-title">Find your next favourite recipe</h3>
+            <p class="results__empty-text">
+              Search by dish or ingredient, or try one of these:
+            </p>
+            <div class="results__suggestions">
+              <button class="results__suggestion" type="button" data-query="pizza">Pizza</button>
+              <button class="results__suggestion" type="button" data-query="pasta">Pasta</button>
+              <button class="results__suggestion" type="button" data-query="curry">Curry</button>
+              <button class="results__suggestion" type="button" data-query="avocado">Avocado</button>
+              <button class="results__suggestion" type="button" data-query="salad">Salad</button>
+              <button class="results__suggestion" type="button" data-query="cake">Cake</button>
             </div>
-            <p>Start by searching for a recipe or an ingredient. Have fun!</p>
-          </div>
+          </li>
         </ul>
 
         <div class="pagination"></div>

@@ -15,6 +15,7 @@ A responsive recipe app built with vanilla JavaScript using the **MVC architectu
 
 ### 🔍 Search & browse
 - Search recipes by name or ingredient
+- Friendly empty state with one-tap search suggestions (Pizza, Pasta, Curry…)
 - Paginated results (10 per page)
 - Loading spinners and friendly error messages (no results, network issues, timeouts)
 

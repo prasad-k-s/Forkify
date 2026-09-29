@@ -16,6 +16,14 @@ class SearchView {
       e.preventDefault();
       handler();
     });
+
+    // Quick-search suggestions shown in the empty results sidebar
+    document.querySelector(".results").addEventListener("click", (e) => {
+      const btn = e.target.closest(".results__suggestion");
+      if (!btn) return;
+      this._field.value = btn.dataset.query;
+      handler();
+    });
   }
 }
 

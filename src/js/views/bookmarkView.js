@@ -13,6 +13,13 @@ class BookmarkView extends View {
     this._addHandlerTogglePanel();
   }
 
+  // An empty list is a normal state, so show a friendly message, not an error
+  render(data, render = true) {
+    if (Array.isArray(data) && data.length === 0)
+      return this.renderMessage(this._errorMessage);
+    return super.render(data, render);
+  }
+
   _generateMarkup() {
     return this._data
       .map((bookmark) => previewView.render(bookmark, false))
